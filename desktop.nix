@@ -19,7 +19,6 @@
     };
   };
 
-  console.keyMap = "pl2";
 
   # Session management - zapisywanie stanu sesji
   services.xserver.displayManager.sessionCommands = ''

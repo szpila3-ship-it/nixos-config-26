@@ -24,7 +24,6 @@
     hunspellDicts.pl-pl
 
     # Edytory i narzędzia deweloperskie
-    sublime4
     poedit
 
     # Ikony i motywy
@@ -39,6 +38,7 @@
     qpwgraph
     qbittorrent
     mesa-demos        # zawiera glxgears
+    nh
 
     # Komunikatory
     discord
@@ -92,4 +92,7 @@
     # Wsparcie dla ekranu dotykowego
     xorg.xinput       # Konfiguracja urządzeń wejściowych
   ];
+
+
+
 }

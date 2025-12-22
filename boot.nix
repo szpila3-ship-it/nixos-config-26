@@ -1,62 +1,77 @@
 { config, pkgs, ... }:
 
 {
-  # Bootloader - konfiguracja dla Legion Go
+  ########################################
+  # BOOTLOADER
+  ########################################
   boot = {
     loader = {
       systemd-boot = {
         enable = true;
-        consoleMode = "2";
+        consoleMode = "2"; # max EFI resolution (OK dla Legion Go)
       };
       efi.canTouchEfiVariables = true;
     };
-    
-    # AMD GPU i moduły dla Legion Go
-    initrd.kernelModules = ["amdgpu"];
-    kernelModules = ["kvm-amd"];
-    
-    # Najnowszy kernel dla najlepszego wsparcia handhelda
+
+    ########################################
+    # KERNEL & MODULES
+    ########################################
+    initrd.kernelModules = [ "amdgpu" ];
+    kernelModules = [ "kvm-amd" ];
+
+    # Najnowszy kernel – najlepsze wsparcie handhelda
     kernelPackages = pkgs.linuxPackages_latest;
-    
+
+    ########################################
+    # KERNEL PARAMETERS
+    ########################################
     kernelParams = [
       # AMD GPU
       "amdgpu.dcdebugmask=0x10"
-      
-      # Rotacja konsoli (dopasuj do orientacji ekranu)
+      "amdgpu.ppfeaturemask=0xffffffff"
+
+      # Rotacja konsoli (TTY / boot)
+      # 0 = none, 1 = 90° right, 2 = 180°, 3 = 90° left
       "fbcon=rotate:3"
-      
-      # Optymalizacje boot dla handheld
-      "quiet"           # Mniej logów
-      "splash"          # Splash screen
-      "loglevel=3"      # Reduced verbosity
+
+      # Quiet boot
+      "quiet"
+      "splash"
+      "loglevel=3"
       "rd.systemd.show_status=false"
       "rd.udev.log_level=3"
-      
-      # AMD GPU Performance
-      "amdgpu.ppfeaturemask=0xffffffff"  # Wszystkie funkcje GPU
-      
-      # Battery life (opcjonalne - możesz zakomentować dla lepszej wydajności)
-      # "amdgpu.dpm=1"                   # Dynamic Power Management
     ];
   };
 
-  # Zram swap - ŚWIETNE dla handhelda z ograniczoną pamięcią
+  ########################################
+  # CONSOLE (TTY FONT + KEYMAP)
+  ########################################
+  console = {
+  font = "latarcyrheb-sun32";
+  keyMap = "pl";
+  };
+
+  ########################################
+  # ZRAM SWAP (IDEALNE DLA HANDHELDA)
+  ########################################
   zramSwap = {
     enable = true;
     algorithm = "zstd";
-    memoryPercent = 50;  # 50% RAM jako zram
+    memoryPercent = 50; # ~50% RAM jako zram
   };
 
-  # Zarządzanie energią dla handhelda
+  ########################################
+  # POWER MANAGEMENT
+  ########################################
   powerManagement = {
     enable = true;
-    cpuFreqGovernor = "schedutil";  # Balans wydajności i oszczędzania
-    
-    # Opcjonalnie - powerpolicy dla lepszego battery life
-    # cpuFreqGovernor = "powersave";
+    cpuFreqGovernor = "schedutil"; # balans wydajność / bateria
   };
-  
-  # Firmware dla AMD
+
+  ########################################
+  # FIRMWARE
+  ########################################
   hardware.enableRedistributableFirmware = true;
   hardware.enableAllFirmware = true;
 }
+
