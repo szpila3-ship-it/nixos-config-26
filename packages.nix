@@ -17,7 +17,6 @@
     vim
     wget
     git
-    nano
 
     # Sprawdzanie pisowni
     hunspell
@@ -27,7 +26,6 @@
     poedit
 
     # Ikony i motywy
-    adwaita-icon-theme
     papirus-icon-theme
 
     # Narzędzia systemowe
@@ -36,9 +34,13 @@
     tealdeer
     fastfetch
     qpwgraph
-    qbittorrent
     mesa-demos        # zawiera glxgears
     nh
+
+    # Narzedzia Programistów
+    vscodium
+    nano
+    neovim
 
     # Komunikatory
     discord

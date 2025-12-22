@@ -1,21 +1,19 @@
 { config, pkgs, ... }:
 
 {
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
+  home.username = "draxmen";
+  home.homeDirectory = "/home/draxmen";
 
-  home-manager.users.draxmen = {
-    home.stateVersion = "26.05";
+  home.stateVersion = "24.05"; # ZOSTAW 24.05
 
-   programs.git = {
-  enable = true;
-  settings = {
-    user.name = "draxmen";
-    user.email = "you@example.com";
+  programs.git = {
+    enable = true;
+    settings = {
+      user.name = "draxmen";
+      user.email = "you@example.com";
+    };
   };
-};
 
-    programs.bash.enable = true;
-    programs.zsh.enable = true;
-  };
+  programs.bash.enable = true;
+  programs.zsh.enable = true;
 }

@@ -40,19 +40,22 @@
     };
   };
 
-  # Dźwięk - Pipewire (najlepsze dla handhelda)
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;  # Dla gier 32-bit
-    pulse.enable = true;
-    jack.enable = true;  # Dla profesjonalnego audio (opcjonalne)
-    
-    # Niska latencja dla gamingu
-    wireplumber.enable = true;
-  };
+  # Dźwięk - PipeWire (najlepsze dla handhelda / gamingu)
+
+security.rtkit.enable = true;
+
+services.pipewire = {
+  enable = true;
+
+  alsa.enable = true;
+  alsa.support32Bit = true;   # Gry 32-bit (Steam/Proton)
+
+  pulse.enable = true;        # Emulacja PulseAudio (WYMAGANE)
+  jack.enable = true;         # Opcjonalne (pro audio)
+
+  wireplumber.enable = true;  # Session manager (niska latencja)
+};
+
 
   # ═══════════════════════════════════════════════════════════
   # OPTYMALIZACJE DLA LEGION GO (małego ekranu 8.8")

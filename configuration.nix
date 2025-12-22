@@ -11,15 +11,12 @@
     ./packages.nix
     ./services.nix
     ./sync.nix
-    # Home Manager (NixOS module)
-    <home-manager/nixos>
-    ./home-manager.nix
     ./gaming.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
-  
 
-  # Wersja systemu
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   system.stateVersion = "24.05";
 }

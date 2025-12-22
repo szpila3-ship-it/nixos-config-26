@@ -32,7 +32,7 @@
 
       # Rotacja konsoli (TTY / boot)
       # 0 = none, 1 = 90° right, 2 = 180°, 3 = 90° left
-      "fbcon=rotate:3"
+      "fbcon=rotate:2"
 
       # Quiet boot
       "quiet"
@@ -47,7 +47,7 @@
   # CONSOLE (TTY FONT + KEYMAP)
   ########################################
   console = {
-  font = "latarcyrheb-sun32";
+  font = "latarcyrheb-sun16";
   keyMap = "pl";
   };
 
