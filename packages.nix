@@ -16,7 +16,9 @@
     # Narzędzia podstawowe
     vim
     wget
-    git
+    qdirstat
+    rustdesk
+    tealdeer
 
     # Sprawdzanie pisowni
     hunspell
@@ -25,49 +27,41 @@
     # Edytory i narzędzia deweloperskie
     poedit
 
-    # Ikony i motywy
-    papirus-icon-theme
-
-    # Narzędzia systemowe
-    rustdesk
-    qdirstat
-    tealdeer
-    fastfetch
-    qpwgraph
-    mesa-demos        # zawiera glxgears
-    nh
-
-    # Narzedzia Programistów
-    vscodium
+    # Narzędzia programistyczne
     nano
     neovim
+    vscodium
 
     # Komunikatory
     discord
     signal-desktop
     telegram-desktop
 
-    # Narzędzia dla trybu desktop/docking
+    # Narzędzia KDE
+    kdePackages.kate
+    kdePackages.kdenlive
+    kdePackages.kconfig
+    kdePackages.kservice
+    kdePackages.plasma-browser-integration
+
+    # Ikony i motywy
+    papirus-icon-theme
+
+    # Narzędzia systemowe
     autorandr
     ddcutil
     brightnessctl
     powertop
+    mesa-demos        # zawiera glxgears
+    nh
+    fastfetch
 
     # Czcionki
     google-fonts
 
-    # KDE i multimedia
-    kdePackages.kdenlive
+    # Multiemdia
     avidemux
     haruna
-
-    # Narzędzia KDE
-    kdePackages.kate
-    kdePackages.plasma-browser-integration
-
-    # Dla KDE Plasma 6
-    kdePackages.kconfig
-    kdePackages.kservice
 
     # ═══════════════════════════════════════════════════════════
     # NARZĘDZIA SPECYFICZNE DLA LEGION GO / HANDHELDA
@@ -94,7 +88,5 @@
     # Wsparcie dla ekranu dotykowego
     xorg.xinput       # Konfiguracja urządzeń wejściowych
   ];
-
-
-
 }
+

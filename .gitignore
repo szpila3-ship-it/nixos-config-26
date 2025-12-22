@@ -1,5 +1,27 @@
+# Plik sprzętowej konfiguracji - często specyficzny dla maszyny
 hardware-configuration.nix
+
+# Klucze prywatne i certyfikaty
 *.key
 *.pem
+*.crt
 *.secret
+*.der
+
+# Pliki środowiskowe z hasłami i tokenami
 .env
+.env.*
+
+# Pliki tymczasowe, cache, logi
+*.log
+*.cache
+*.tmp
+
+# Foldery konfiguracyjne edytorów i IDE
+.vscode/
+.idea/
+
+# Inne pliki prywatne
+secrets.nix
+private.nix
+
