@@ -11,6 +11,8 @@
     ./packages.nix
     ./services.nix
     ./sync.nix
+    # Home Manager (NixOS module)
+    <home-manager/nixos>
     ./home-manager.nix
     ./gaming.nix
   ];
