@@ -18,7 +18,12 @@
       variant = "";
     };
   };
-
+  # Ustawienie dla fastfetch
+{
+  services.xserver.desktopManager.plasma6.extraSessionCommands = ''
+    ${pkgs.fastfetch}/bin/fastfetch &
+  '';
+}
 
   # Session management - zapisywanie stanu sesji
   services.xserver.displayManager.sessionCommands = ''
@@ -73,3 +78,5 @@ services.pipewire = {
     MOZ_ENABLE_WAYLAND = "1";
   };
 }
+
+
